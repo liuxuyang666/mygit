@@ -7,5 +7,6 @@ public class gitgit {
 
     public void version(){
          //金科教育金科教育出版社
+        System.out.println("下载调试");
     }
 }
