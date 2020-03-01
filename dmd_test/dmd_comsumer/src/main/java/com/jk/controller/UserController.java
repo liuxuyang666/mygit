@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("user")
 @ComponentScan(basePackages = {"com.jk.*"})
 public class UserController {
-
     @Reference
     private UserService userService;
 
