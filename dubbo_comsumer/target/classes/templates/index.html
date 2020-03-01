@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<head xmlns:th="http://www.w3.org/1999/xhtml" xmlns:text-decoration="http://www.w3.org/1999/xhtml">
+    <title>B.订单列表</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link th:href="@{/js/resources/css/jquery-ui-themes.css}" href="../static/js/resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
+    <link th:href="@{/js/resources/css/jquery-ui-themes.css}" href="../static/js/resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
+    <link th:href="@{/js/resources/css/axure_rp_page.css}" href="../static/js/resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link th:href="@{/js/data/styles.css}" href="../static/js/data/styles.css" type="text/css" rel="stylesheet"/>
+    <link th:href="@{/js/files/b_订单列表/styles.css}" href="../static/js/files/b_订单列表/styles.css" type="text/css" rel="stylesheet"/>
+    <script th:src="@{/js/resources/scripts/jquery-1.7.1.min.js}" src="../static/js/resources/scripts/jquery-1.7.1.min.js"></script>
+    <script th:src="@{/js/resources/scripts/jquery-ui-1.8.10.custom.min.js}" src="../static/js/resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/axQuery.js}" src="../static/js/resources/scripts/axure/axQuery.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/globals.js}" src="../static/js/resources/scripts/axure/globals.js"></script>
+    <script th:src="@{/js/resources/scripts/axutils.js}" src="../static/js/resources/scripts/axutils.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/annotation.js}" src="../static/js/resources/scripts/axure/annotation.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/axQuery.std.js}" src="../static/js/resources/scripts/axure/axQuery.std.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/doc.js}" src="../static/js/resources/scripts/axure/doc.js"></script>
+    <script th:src="@{/js/data/document.js}" src="../static/js/data/document.js"></script>
+    <script th:src="@{/js/resources/scripts/messagecenter.js}" src="../static/js/resources/scripts/messagecenter.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/events.js}" src="../static/js/resources/scripts/axure/events.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/recording.js}" src="../static/js/resources/scripts/axure/recording.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/action.js}" src="../static/js/resources/scripts/axure/action.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/expr.js}" src="../static/js/resources/scripts/axure/expr.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/geometry.js}" src="../static/js/resources/scripts/axure/geometry.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/flyout.js}" src="../static/js/resources/scripts/axure/flyout.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/ie.js}" src="../static/js/resources/scripts/axure/ie.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/model.js}" src="../static/js/resources/scripts/axure/model.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/repeater.js}" src="../static/js/resources/scripts/axure/repeater.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/sto.js}" src="../static/js/resources/scripts/axure/sto.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/utils.temp.js}" src="../static/js/resources/scripts/axure/utils.temp.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/variables.js}" src="../static/js/resources/scripts/axure/variables.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/drag.js}" src="../static/js/resources/scripts/axure/drag.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/move.js}" src="../static/js/resources/scripts/axure/move.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/visibility.js}" src="../static/js/resources/scripts/axure/visibility.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/style.js}" src="../static/js/resources/scripts/axure/style.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/adaptive.js}" src="../static/js//scripts/axure/adaptive.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/tree.js}" src="../static/js/resourcesresources/scripts/axure/tree.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/init.temp.js}" src="../static/js/resources/scripts/axure/init.temp.js"></script>
+    <script th:src="@{/js/files/b_订单列表/data.js}" src="../static/js/files/b_订单列表/data.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/legacy.js}" src="../static/js/resources/scripts/axure/legacy.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/viewer.js}" src="../static/js/resources/scripts/axure/viewer.js"></script>
+    <script th:src="@{/js/resources/scripts/axure/math.js}" src="../static/js/resources/scripts/axure/math.js"></script>
+    <script type="text/javascript">
+        $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
+        $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
+        $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
+    </script>
+</head>
+<body>
+<div id="base" class="">
+
+    <!-- 导航栏 (动态面板) -->
+    <div id="u803" class="ax_default" data-label="导航栏">
+        <div id="u803_state0" class="panel_state" data-label="State1">
+            <div id="u803_state0_content" class="panel_state_content">
+
+                <!-- Unnamed (组合) -->
+                <div id="u804" class="ax_default">
+
+                    <!-- Unnamed (矩形) -->
+                    <div id="u805" class="ax_default box_3">
+                        <div id="u805_div" class=""></div>
+                        <!-- Unnamed () -->
+                        <div id="u806" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (图片) -->
+                    <div id="u807" class="ax_default _图片1">
+                        <img id="u807_img" class="img " src="../js/images/a_登录首页/u252.png"/>
+                        <!-- Unnamed () -->
+                        <div id="u808" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unnamed (矩形) -->
+                <div id="u809" class="ax_default box_1">
+                    <div id="u809_div" class=""></div>
+                    <!-- Unnamed () -->
+                    <div id="u810" class="text" style="visibility: visible;">
+                        <p><span>订单列表</span></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (组合) -->
+                <div id="u811" class="ax_default">
+
+                    <!-- Unnamed (矩形) -->
+                    <div id="u812" class="ax_default label">
+                        <div id="u812_div" class=""></div>
+                        <!-- Unnamed () -->
+                        <div id="u813" class="text" style="visibility: visible;">
+                            <p><span>返回</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (图片) -->
+                    <div id="u814" class="ax_default _图片">
+                        <img id="u814_img" class="img " src="../js/images/a_1忘记密码/u267.svg"/>
+                        <!-- Unnamed () -->
+                        <div id="u815" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unnamed (图片) -->
+                <div id="u816" class="ax_default _图片">
+                    <img id="u816_img" class="img " src="../js/images/b_订单列表/u816.svg"/>
+                    <!-- Unnamed () -->
+                    <div id="u817" class="text" style="display: none; visibility: hidden">
+                        <p><span></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 内容框架 (动态面板) -->
+    <div id="u818" class="ax_default" data-label="内容框架">
+        <div id="u818_state0" class="panel_state" data-label="State1">
+            <div id="u818_state0_content" class="panel_state_content">
+
+                <!-- Unnamed (组合) -->
+                <div id="u819" class="ax_default">
+
+                    <!-- Unnamed (矩形) -->
+                    <div id="u820" class="ax_default box_1">
+                        <div id="u820_div" class=""></div>
+                        <!-- Unnamed () -->
+                        <div id="u821" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (水平线) -->
+                    <div id="u822" class="ax_default line">
+                        <img id="u822_img" class="img " src="../js/images/b_订单列表/u822.png"/>
+                        <!-- Unnamed () -->
+                        <div id="u823" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (水平线) -->
+                    <div id="u824" class="ax_default line">
+                        <img id="u824_img" class="img " src="../js/images/b_订单列表/u822.png"/>
+                        <!-- Unnamed () -->
+                        <div id="u825" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (水平线) -->
+                    <div id="u826" class="ax_default line">
+                        <img id="u826_img" class="img " src="../js/images/b_订单列表/u822.png"/>
+                        <!-- Unnamed () -->
+                        <div id="u827" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u828" class="ax_default _文本段落">
+                        <img id="u828_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u829" class="text" style="visibility: visible;">
+                            <p><span id="bh"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u830" class="ax_default _文本段落">
+                        <img id="u830_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u831" class="text" style="visibility: visible;">
+                            <p><span id="zt"></span><span style="color:#FF0000;">zt</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u832" class="ax_default _文本段落">
+                        <img id="u832_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u833" class="text" style="visibility: visible;">
+                            <p><span id="sj"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u834" class="ax_default _文本段落">
+                        <img id="u834_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u835" class="text" style="visibility: visible;">
+                            <p><span id="fs"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u836" class="ax_default _文本段落">
+                        <img id="u836_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u837" class="text" style="visibility: visible;">
+                            <p><span id="yh"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u838" class="ax_default _文本段落">
+                        <img id="u838_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u839" class="text" style="visibility: visible;">
+                            <p><span id="ph"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u840" class="ax_default _文本段落">
+                        <img id="u840_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u841" class="text" style="visibility: visible;">
+                            <p><span id="mon"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (矩形) -->
+                    <a href="../commerce/xq">     <div id="u842" class="ax_default box_1">
+                        <div id="u842_div" class=""></div>
+                        <!-- Unnamed () -->
+                        <div id="u843" class="text" style="visibility: visible;">
+                           <p><span>查看详情</span></p>
+                        </div>
+                    </div></a>
+                </div>
+
+                <!-- Unnamed (组合) -->
+                <div id="u844" class="ax_default">
+
+                    <!-- Unnamed (矩形) -->
+                    <div id="u845" class="ax_default box_1">
+                        <div id="u845_div" class=""></div>
+                        <!-- Unnamed () -->
+                        <div id="u846" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (水平线) -->
+                    <div id="u847" class="ax_default line">
+                        <img id="u847_img" class="img " src="../js/images/b_订单列表/u822.png"/>
+                        <!-- Unnamed () -->
+                        <div id="u848" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (水平线) -->
+                    <div id="u849" class="ax_default line">
+                        <img id="u849_img" class="img " src="../js/images/b_订单列表/u822.png"/>
+                        <!-- Unnamed () -->
+                        <div id="u850" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (水平线) -->
+                    <div id="u851" class="ax_default line">
+                        <img id="u851_img" class="img " src="../js/images/b_订单列表/u822.png"/>
+                        <!-- Unnamed () -->
+                        <div id="u852" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u853" class="ax_default _文本段落">
+                        <img id="u853_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u854" class="text" style="visibility: visible;">
+                            <p><span id="bh1"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u855" class="ax_default _文本段落">
+                        <img id="u855_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u856" class="text" style="visibility: visible;">
+                            <p><span id="zt1"></span><span style="color:#FF0000;"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u857" class="ax_default _文本段落">
+                        <img id="u857_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u858" class="text" style="visibility: visible;">
+                            <p><span id="sj1"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u859" class="ax_default _文本段落">
+                        <img id="u859_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u860" class="text" style="visibility: visible;">
+                            <p><span id="fs1"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u861" class="ax_default _文本段落">
+                        <img id="u861_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u862" class="text" style="visibility: visible;">
+                            <p><span id="yh1"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u863" class="ax_default _文本段落">
+                        <img id="u863_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u864" class="text" style="visibility: visible;">
+                            <p><span id="ph1"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u865" class="ax_default _文本段落">
+                        <img id="u865_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u866" class="text" style="visibility: visible;">
+                            <p><span id="mon1"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (矩形) -->
+                    <a href="../commerce/xq">   <div id="u867" class="ax_default box_1">
+                        <div id="u867_div" class=""></div>
+                        <!-- Unnamed () -->
+                        <div id="u868" class="text" style="visibility: visible;">
+                            <p><span>查看详情</span></p>
+                        </div>
+                    </div></a>
+
+                    <!-- Unnamed (矩形) -->
+                    <a href="../commerce/bohui">      <div id="u869" class="ax_default box_1">
+                        <div id="u869_div" class=""></div>
+                        <!-- Unnamed () -->
+                        <div id="u870" class="text" style="visibility: visible;">
+                            <p><span>驳回</span></p>
+                        </div>
+                    </div></a>
+                </div>
+
+                <!-- Unnamed (组合) -->
+                <div id="u871" class="ax_default">
+
+                    <!-- Unnamed (矩形) -->
+                    <div id="u872" class="ax_default box_1">
+                        <div id="u872_div" class=""></div>
+                        <!-- Unnamed () -->
+                        <div id="u873" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (水平线) -->
+                    <div id="u874" class="ax_default line">
+                        <img id="u874_img" class="img " src="../js/images/b_订单列表/u822.png"/>
+                        <!-- Unnamed () -->
+                        <div id="u875" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (水平线) -->
+                    <div id="u876" class="ax_default line">
+                        <img id="u876_img" class="img " src="../js/images/b_订单列表/u822.png"/>
+                        <!-- Unnamed () -->
+                        <div id="u877" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (水平线) -->
+                    <div id="u878" class="ax_default line">
+                        <img id="u878_img" class="img " src="../js/images/b_订单列表/u822.png"/>
+                        <!-- Unnamed () -->
+                        <div id="u879" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u880" class="ax_default _文本段落">
+                        <img id="u880_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u881" class="text" style="visibility: visible;">
+                            <p><span id="bh2"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u882" class="ax_default _文本段落">
+                        <img id="u882_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u883" class="text" style="visibility: visible;">
+                            <p><span id="zt2"></span><span style="color:#FF0000;"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u884" class="ax_default _文本段落">
+                        <img id="u884_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u885" class="text" style="visibility: visible;">
+                            <p><span id="sj2"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u886" class="ax_default _文本段落">
+                        <img id="u886_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u887" class="text" style="visibility: visible;">
+                            <p><span id="fs2"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u888" class="ax_default _文本段落">
+                        <img id="u888_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u889" class="text" style="visibility: visible;">
+                            <p><span id="yh2"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u890" class="ax_default _文本段落">
+                        <img id="u890_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u891" class="text" style="visibility: visible;">
+                            <p><span id="ph2"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u892" class="ax_default _文本段落">
+                        <img id="u892_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u893" class="text" style="visibility: visible;">
+                            <p><span id="mon2"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (矩形) -->
+                    <a href="../commerce/xq">   <div id="u894" class="ax_default box_1">
+                        <div id="u894_div" class=""></div>
+                        <!-- Unnamed () -->
+                        <div id="u895" class="text" style="visibility: visible;">
+                            <p><span>查看详情</span></p>
+                        </div>
+                    </div></a>
+
+                    <!-- Unnamed (矩形) -->
+                    <div id="u896" class="ax_default box_1">
+                        <div id="u896_div" class=""></div>
+                        <!-- Unnamed () -->
+                        <div id="u897" class="text" style="visibility: visible;">
+                            <a href="/commerce/fa"><p><span>直接退款</span></p></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unnamed (组合) -->
+                <div id="u898" class="ax_default">
+
+                    <!-- Unnamed (矩形) -->
+                    <div id="u899" class="ax_default box_1">
+                        <div id="u899_div" class=""></div>
+                        <!-- Unnamed () -->
+                        <div id="u900" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (水平线) -->
+                    <div id="u901" class="ax_default line">
+                        <img id="u901_img" class="img " src="../js/images/b_订单列表/u822.png"/>
+                        <!-- Unnamed () -->
+                        <div id="u902" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (水平线) -->
+                    <div id="u903" class="ax_default line">
+                        <img id="u903_img" class="img " src="../js/images/b_订单列表/u822.png"/>
+                        <!-- Unnamed () -->
+                        <div id="u904" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (水平线) -->
+                    <div id="u905" class="ax_default line">
+                        <img id="u905_img" class="img " src="../js/images/b_订单列表/u822.png"/>
+                        <!-- Unnamed () -->
+                        <div id="u906" class="text" style="display: none; visibility: hidden">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u907" class="ax_default _文本段落">
+                        <img id="u907_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u908" class="text" style="visibility: visible;">
+                            <p><span id="bh3"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u909" class="ax_default _文本段落">
+                        <img id="u909_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u910" class="text" style="visibility: visible;">
+                            <p><span id="zt3">订单状态：</span><span style="color:#FF0000;">已退款</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u911" class="ax_default _文本段落">
+                        <img id="u911_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u912" class="text" style="visibility: visible;">
+                            <p><span id="sj3"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u913" class="ax_default _文本段落">
+                        <img id="u913_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u914" class="text" style="visibility: visible;">
+                            <p><span id="fs3"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u915" class="ax_default _文本段落">
+                        <img id="u915_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u916" class="text" style="visibility: visible;">
+                            <p><span id="yh3"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u917" class="ax_default _文本段落">
+                        <img id="u917_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u918" class="text" style="visibility: visible;">
+                            <p><span id="ph3"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u919" class="ax_default _文本段落">
+                        <img id="u919_img" class="img " src="../js/resources/images/transparent.gif"/>
+                        <!-- Unnamed () -->
+                        <div id="u920" class="text" style="visibility: visible;">
+                            <p><span id="mon3"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Unnamed (矩形) -->
+                    <a href="../commerce/xq">    <div id="u921" class="ax_default box_1">
+                        <div id="u921_div" class=""></div>
+                        <!-- Unnamed () -->
+                        <div id="u922" class="text" style="visibility: visible;">
+                            <p><span>查看详情</span></p>
+                        </div>
+                    </div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Unnamed (IPhone White) -->
+
+    <!-- Unnamed (组合) -->
+    <div id="u924" class="ax_default">
+
+        <!-- Unnamed (图片) -->
+        <div id="u925" class="ax_default box_1">
+            <img id="u925_img" class="img " src="../js/images/a_2首页/u343.png"/>
+            <!-- Unnamed () -->
+            <div id="u926" class="text" style="display: none; visibility: hidden">
+                <p><span></span></p>
+            </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u927" class="ax_default box_1">
+            <img id="u927_img" class="img " src="../js/images/a_2首页/u345.png"/>
+            <!-- Unnamed () -->
+            <div id="u928" class="text" style="display: none; visibility: hidden">
+                <p><span></span></p>
+            </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u929" class="ax_default box_1">
+            <img id="u929_img" class="img " src="../js/images/a_2首页/u347.png"/>
+            <!-- Unnamed () -->
+            <div id="u930" class="text" style="display: none; visibility: hidden">
+                <p><span></span></p>
+            </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u931" class="ax_default box_1">
+            <img id="u931_img" class="img " src="../js/images/a_2首页/u349.png"/>
+            <!-- Unnamed () -->
+            <div id="u932" class="text" style="display: none; visibility: hidden">
+                <p><span></span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 搜索栏 (动态面板) -->
+    <div id="u933" class="ax_default" data-label="搜索栏">
+        <div id="u933_state0" class="panel_state" data-label="默认状态">
+            <div id="u933_state0_content" class="panel_state_content">
+
+                <!-- Unnamed (矩形) -->
+                <div id="u934" class="ax_default box_1">
+                    <div id="u934_div" class=""></div>
+                    <!-- Unnamed () -->
+                    <div id="u935" class="text" style="display: none; visibility: hidden">
+                        <p><span></span></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (矩形) -->
+                <div id="u936" class="ax_default box_1">
+                    <div id="u936_div" class=""></div>
+                    <!-- Unnamed () -->
+                    <div id="u937" class="text" style="visibility: visible;">
+                        <p><span style="font-family:'Helvetica';">&nbsp;</span><span style="font-family:'PingFangSC-Regular', 'PingFang SC';">搜索</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="u933_state1" class="panel_state" data-label="激活状态">
+            <div id="u933_state1_content" class="panel_state_content">
+
+                <!-- Unnamed (矩形) -->
+                <div id="u938" class="ax_default box_1">
+                    <div id="u938_div" class=""></div>
+                    <!-- Unnamed () -->
+                    <div id="u939" class="text" style="display: none; visibility: hidden">
+                        <p><span></span></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (矩形) -->
+                <div id="u940" class="ax_default box_1">
+                    <div id="u940_div" class=""></div>
+                    <!-- Unnamed () -->
+                    <div id="u941" class="text" style="visibility: visible;">
+                        <p><span style="font-family:'FontAwesome Regular', 'FontAwesome';"></span><span style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;font-style:normal;"> </span></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (矩形) -->
+                <div id="u942" class="ax_default box_1">
+                    <div id="u942_div" class=""></div>
+                    <!-- Unnamed () -->
+                    <div id="u943" class="text" style="visibility: visible;">
+                        <p><span>取消</span></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (组合) -->
+                <div id="u944" class="ax_default">
+
+                    <!-- 输入框 (文本框) -->
+                    <div id="u945" class="ax_default box_1" data-label="输入框">
+                        <input id="u945_input" type="text" value="A" maxlength="20"/>
+                    </div>
+
+                    <!-- 清除 (矩形) -->
+                    <div id="u946" class="ax_default box_1 ax_default_hidden" data-label="清除" style="display: none; visibility: hidden">
+                        <div id="u946_div" class=""></div>
+                        <!-- Unnamed () -->
+                        <div id="u947" class="text" style="visibility: visible;">
+                            <p><span></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Unnamed (矩形) -->
+   <!-- <div id="u948" class="ax_default box_1">
+        <div id="u948_div" class=""></div>
+        &lt;!&ndash; Unnamed () &ndash;&gt;
+        <div id="u949" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+        </div>
+    </div>-->
+
+  <!--  &lt;!&ndash; Unnamed (文本段落) &ndash;&gt;
+    <div id="u950" class="ax_default _文本段落">
+        <img id="u950_img" class="img " src="resources/images/transparent.gif"/>
+        &lt;!&ndash; Unnamed () &ndash;&gt;
+        <div id="u951" class="text" style="visibility: visible;">
+            <p style="text-align:left;"><span>1、全部订单里面包括：待支付、已支付、待处理、待退款、退款异常、已退款、已完成（交易完成）；</span></p><p style="text-align:center;"><span><br></span></p>
+        </div>
+    </div>-->
+<!--
+    &lt;!&ndash; Unnamed (文本段落) &ndash;&gt;
+    <div id="u952" class="ax_default _文本段落">
+        <img id="u952_img" class="img " src="resources/images/transparent.gif"/>
+        &lt;!&ndash; Unnamed () &ndash;&gt;
+        <div id="u953" class="text" style="visibility: visible;">
+            <p><span>2、全部订单采取倒叙，按最终更新时间展示；</span></p><p><span><br></span></p>
+        </div>
+    </div>
+
+    &lt;!&ndash; Unnamed (文本段落) &ndash;&gt;
+    <div id="u954" class="ax_default _文本段落">
+        <img id="u954_img" class="img " src="resources/images/transparent.gif"/>
+        &lt;!&ndash; Unnamed () &ndash;&gt;
+        <div id="u955" class="text" style="visibility: visible;">
+            <p><span>3、搜索条件：按订单号搜索、按下单手机号搜索；</span></p><p><span><br></span></p>
+        </div>
+    </div>
+
+    &lt;!&ndash; Unnamed (文本段落) &ndash;&gt;
+    <div id="u956" class="ax_default _文本段落">
+        <img id="u956_img" class="img " src="resources/images/transparent.gif"/>
+        &lt;!&ndash; Unnamed () &ndash;&gt;
+        <div id="u957" class="text" style="visibility: visible;">
+            <p><span>4、待处理订单，时间记录用户提交售后的时间；</span></p><p><span><br></span></p>
+        </div>
+    </div>-->
+</div>
+
+</body>
+
+<script  type="text/javascript">
+
+
+
+$(function(){
+
+    queryDing();
+
+})
+function  queryDing(){
+
+    $.ajax({
+        url:'../commerce/dinDan',
+        type: "post",
+        success:function(data){
+
+            var  bianhao = "";
+            var zhuangtai="";
+            var shijian="";
+            var  yonghu ="";
+            var fangshi="";
+            var phone="";
+            var money="";
+            for (var i =0;i<data.length;i++){
+                if (i==0){
+
+                    bianhao = "订单编号："+data[0].dbianhao;
+                    zhuangtai="订单状态："+data[0].dstatus;
+                    shijian="下单时间："+data[0].dtime;
+                    yonghu="下单用户："+data[0].duser;
+                    fangshi="支付方式："+data[0].dzhifu;
+                    phone="下单手机号："+data[0].dphone;
+                    money="实付金额："+data[0].dmoney+"元";
+                    $("#bh").html(bianhao);
+                    $("#zt").html(zhuangtai);
+                    $("#sj").html(shijian);
+
+                    $("#yh").html(yonghu);
+                    $("#fs").html(fangshi);
+                    $("#ph").html(phone);
+                    $("#mon").html(money);
+                }
+                if(i==1){
+                    bianhao = "订单编号："+data[1].dbianhao;
+                    zhuangtai="订单状态："+data[1].dstatus;
+                    shijian="下单时间："+data[1].dtime;
+                    yonghu="下单用户："+data[1].duser;
+                    fangshi="支付方式；"+data[1].dzhifu;
+                    phone="下单手机号:"+data[1].dphone;
+                    money="实付金额:"+data[1].dmoney+"元";
+                    $("#bh1").html(bianhao);
+                    $("#zt1").html(zhuangtai);
+                    $("#sj1").html(shijian);
+
+                    $("#yh1").html(yonghu);
+                    $("#fs1").html(fangshi);
+                    $("#ph1").html(phone);
+                    $("#mon1").html(money);
+                }
+                if(i==2){
+                    bianhao = "订单编号："+data[2].dbianhao;
+                    zhuangtai="订单状态："+data[2].dstatus;
+                    shijian="下单时间:"+data[2].dtime;
+                    yonghu="下单用户:"+data[2].duser;
+                    fangshi="支付方式:"+data[2].dzhifu;
+                    phone="下单手机号:"+data[2].dphone;
+                    money="实付金额:"+data[2].dmoney+"元";
+                    $("#bh2").html(bianhao);
+                    $("#zt2").html(zhuangtai);
+                    $("#sj2").html(shijian);
+
+                    $("#yh2").html(yonghu);
+                    $("#fs2").html(fangshi);
+                    $("#ph2").html(phone);
+                    $("#mon2").html(money);
+                }
+                if(i==3){
+                    bianhao = "订单编号："+data[3].dbianhao;
+                    zhuangtai="订单状态："+data[3].dstatus;
+                    shijian="下单时间:"+data[3].dtime;
+                    yonghu="下单用户:"+data[3].duser;
+                    fangshi="支付方式:"+data[3].dzhifu;
+                    phone="下单手机号:"+data[3].dphone;
+                    money="实付金额:"+data[3].dmoney+"元";
+                    $("#bh3").html(bianhao);
+                    $("#zt3").html(zhuangtai);
+                    $("#sj3").html(shijian);
+
+                    $("#yh3").html(yonghu);
+                    $("#fs3").html(fangshi);
+                    $("#ph3").html(phone);
+                    $("#mon3").html(money);
+                }
+            }
+
+
+        }, error: function () {
+            alert("失败");
+        }
+    })
+}
+
+
+</script>
+
+</html>
