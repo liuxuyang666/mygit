@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>账号</td>
+            <td>
+                admin
+<!--                <label th:text="${session.account}"></label>-->
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                密码
+            </td>
+            <td>
+                <input type="text" name = "pw">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                确认密码
+            </td>
+            <td>
+                <input type="text" name = "pws">
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">
+                <input type="button" value="确认修改" onclick="updatePw()">
+            </td>
+        </tr>
+    </table>
+</body>
+
+<script>
+    function updatePw() {
+
+    }
+</script>
+</html>
