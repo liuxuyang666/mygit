@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://www.17sucai.com/preview/476094/2019-04-25/ht2/tgls/index.html -->
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+		<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+		<!-- Google Chrome Frame也可以让IE用上Chrome的引擎: -->
+		<meta name="renderer" content="webkit">
+		<!--国产浏览器高速模式-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="穷在闹市">
+		<!-- 作者 -->
+		<meta name="revised" content="穷在闹市.v3, 2019/05/01">
+		<!-- 定义页面的最新版本 -->
+		<meta name="description" content="网站简介">
+		<!-- 网站简介 -->
+		<meta name="keywords" content="搜索关键字，以半角英文逗号隔开">
+		<title>穷在闹市</title>
+
+		<!-- 公共样式 开始 -->
+		<link rel="stylesheet" type="text/css" th:href="@{/js/files/base.css}" href="../static/js/files/base.css">
+		<link rel="stylesheet" type="text/css" th:href="@{/js/files/iconfont.css}" href="../static/js/files/iconfont.css">
+
+		<script th:src="@{/js/files/jquery-1.11.3.min.js.下载}" src="../static/js/files/jquery-1.11.3.min.js.下载"></script>
+		<link rel="stylesheet" type="text/css" th:href="@{/js/files/layui.css}" href="../static/js/files/layui.css">
+			<script th:src="@{/js/files/layui.js.下载}" src="../static/js/files/layui.js.下载"></script>
+
+		<!-- 滚动条插件 -->
+			<link rel="stylesheet" type="text/css" th:href="@{/js/files/jquery.mCustomScrollbar.css}" href="../static/js/files/jquery.mCustomScrollbar.css">
+			<script th:src="@{/js/files/jquery-ui-1.10.4.min.js.下载}" src="../static/js/files/jquery-ui-1.10.4.min.js.下载"></script>
+			<script th:src="@{/js/files/jquery.mousewheel.min.js.下载}" src="../static/js/files/jquery.mousewheel.min.js.下载"></script>
+			<script th:src="@{/js/files/jquery.mCustomScrollbar.min.js.下载}" src="../static/js/files/jquery.mCustomScrollbar.min.js.下载"></script>
+			<script th:src="@{/js/files/cframe.js.下载}" src="../static/js/files/cframe.js.下载"></script>
+<!--			<script th:src="@{/js/echarts.min.js}" src="../static/js/echarts.min.js"></script>-->
+			<!-- 仅供所有子页面使用 -->
+		<!-- 公共样式 结束 -->
+		
+		<!--报表-->
+
+			<script th:src="@{/js/files/backHome.js.下载}" src="../static/js/files/backHome.js.下载"></script>
+			<link rel="stylesheet" type="text/css" th:href="@{/js/files/backHome.css}" href="../static/js/files/backHome.css">
+			<script th:src="@{/js/files/api}" src="../static/js/files/api"></script>
+			<script th:src="@{/js/files/echarts.min.js.下载}" src="../static/js/files/echarts.min.js.下载"></script>
+
+
+	</head>
+
+	<body>
+		<div class="row">
+			<div class="col-md-2">
+				<div class="module">
+					<!--<div class="title"><span></span><font>今日数据统计</font></div>
+					<div class="content">
+						<div class="today_data">
+							<ul>
+								<li class="new_bt">
+									<div class="state"><i class="iconfont icon-xiangxiajiantoucuxiao"></i></div>
+									<div class="data1">
+										<p>今日订单数量</p>
+										<h1>2</h1>
+									</div>
+									<div class="data2">
+										<p>与昨日数量比</p>
+										<h1>5%</h1>
+									</div>
+								</li>
+								<li>
+									<div class="state"><i class="iconfont icon-xiangshangjiantoucuxiao"></i></div>
+									<div class="data1">
+										<p>今日订单总金额</p>
+										<h1>2</h1>
+									</div>
+									<div class="data2">
+										<p>与昨日金额比</p>
+										<h1>5%</h1>
+									</div>
+								</li>
+								<li>
+									<div class="state">- - </div>
+									<div class="data1">
+										<p>今日下单商户数</p>
+										<h1>2</h1>
+									</div>
+									<div class="data2">
+										<p>与昨日数量相比</p>
+										<h1>5%</h1>
+									</div>
+								</li>
+								<li>
+									<div class="state"><i class="iconfont icon-xiangshangjiantoucuxiao"></i></div>
+									<div class="data1">
+										<p>平台拥有总商户数</p>
+										<h1>2564</h1>
+									</div>
+									<div class="data2">
+										<p>昨日总商户数</p>
+										<h1>2500</h1>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>-->
+				</div>
+			</div>
+			<div class="col-md_5">
+				<div class="module">
+					<div class="title"><span></span><font>全国开通城市分布图</font></div>
+					<div class="content">
+						<div id="echartsMap" style="width: 100%; height: 325px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: rgb(64, 74, 89);" _echarts_instance_="ec_1583306098048"><div style="position: relative; overflow: hidden; width: 670px; height: 325px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="837" height="406" style="position: absolute; left: 0px; top: 0px; width: 670px; height: 325px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas><canvas data-zr-dom-id="zr_1" width="837" height="406" style="position: absolute; left: 0px; top: 0px; width: 670px; height: 325px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas><canvas data-zr-dom-id="zr_2" width="837" height="406" style="position: absolute; left: 0px; top: 0px; width: 670px; height: 325px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas><canvas data-zr-dom-id="zr_3" width="837" height="406" style="position: absolute; left: 0px; top: 0px; width: 670px; height: 325px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div></div></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 no_mr">
+				<div class="module">
+					<div class="title"><span></span><font>出单时段统计</font></div>
+					<div class="content">
+						<div class="service_data">
+							<ul>
+								<li>
+									<font>00:00</font>
+									<div class="data"><div class="num" style="width: 85%;"></div></div>
+									<span>300单</span>
+								</li>
+								<li>
+									<font>02:00</font>
+									<div class="data"><div class="num" style="width: 94%;"></div></div>
+									<span>300单</span>
+								</li>
+								<li>
+									<font>04:00</font>
+									<div class="data"><div class="num" style="width: 65%;"></div></div>
+									<span>300单</span>
+								</li>
+								<li>
+									<font>06:00</font>
+									<div class="data"><div class="num" style="width: 75%;"></div></div>
+									<span>300单</span>
+								</li>
+								<li>
+									<font>08:00</font>
+									<div class="data"><div class="num" style="width: 75%;"></div></div>
+									<span>300单</span>
+								</li>
+								<li>
+									<font>10:00</font>
+									<div class="data"><div class="num" style="width: 75%;"></div></div>
+									<span>300单</span>
+								</li>
+								<li>
+									<font>12:00</font>
+									<div class="data"><div class="num" style="width: 75%;"></div></div>
+									<span>100单</span>
+								</li>
+								<li>
+									<font>14:00</font>
+									<div class="data"><div class="num" style="width: 75%;"></div></div>
+									<span>300单</span>
+								</li>
+								<li>
+									<font>16:00</font>
+									<div class="data"><div class="num" style="width: 75%;"></div></div>
+									<span>300单</span>
+								</li>
+								<li>
+									<font>18:00</font>
+									<div class="data"><div class="num" style="width: 75%;"></div></div>
+									<span>300单</span>
+								</li>
+								<li>
+									<font>20:00</font>
+									<div class="data"><div class="num" style="width: 75%;"></div></div>
+									<span>300单</span>
+								</li>
+								<li>
+									<font>22:00</font>
+									<div class="data"><div class="num" style="width: 75%;"></div></div>
+									<span>300单</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+			</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-5">
+				<div class="module">
+					<div class="title"><span></span><font>订单总量统计</font></div>
+					<div class="content">
+<!--						<div id="startprice" style="width: 600px;height:400px;"></div>-->
+						<div id="echartsOrderNum" style="width: 100%; height: 325px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1583306098049"><div style="position: relative; overflow: hidden; width: 602px; height: 325px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="752" height="406" style="position: absolute; left: 0px; top: 0px; width: 602px; height: 325px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font: 14px/21px &quot;Microsoft YaHei&quot;; padding: 5px; left: 349px; top: 34px;">1月16日<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#c23531;"></span>934</div></div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-5 no_mr">
+				<div class="module">
+					<div class="title"><span></span><font>交易金额总量统计</font></div>
+					<div class="content">
+						<div class="today_data">
+							<div id="echartsMoney" style="width: 100%; height: 325px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1583306098050"><div style="position: relative; overflow: hidden; width: 602px; height: 325px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="752" height="406" style="position: absolute; left: 0px; top: 0px; width: 602px; height: 325px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div></div></div>
+						</div>
+					</div>
+				</div>
+7		</div>
+		</div>
+<!--		<script th:src="@{/js/files/jquery.china.js.下载}" src="../static/js/files/china.js.下载"></script>-->
+
+	<script>
+		$(function () {
+			//加载数据
+			initEacharts();
+			initEachartss();
+		})
+
+		var BJData = [
+		    [{name:'成都'}, {name:'上海',value:95}],
+		    [{name:'成都'}, {name:'广州',value:90}],
+		    [{name:'成都'}, {name:'大连',value:80}],
+		    [{name:'成都'}, {name:'南宁',value:70}],
+		    [{name:'成都'}, {name:'南昌',value:60}],
+		    [{name:'成都'}, {name:'拉萨',value:50}],
+		    [{name:'成都'}, {name:'长春',value:40}],
+		    [{name:'成都'}, {name:'包头',value:30}],
+		    [{name:'成都'}, {name:'重庆',value:20}],
+		    [{name:'成都'}, {name:'乌鲁木齐',value:10}],
+		    [{name:'成都'}, {name:'北京',value:10}],
+		    [{name:'成都'}, {name:'上海',value:10}]
+		];
+		echartsMap("echartsMap",BJData);
+		
+		function initEacharts() {
+			$.ajax({
+				url:"../user/finduser",
+				type:"post",
+
+				success:function (data) {
+					var data1 = data.names;
+					var title = data.values;
+					echartsOrderNum("echartsOrderNum",data1,title)
+
+				}
+			})
+		}
+		function initEachartss() {
+			$.ajax({
+				url:"../user/finduserr",
+				type:"post",
+
+				success:function (data) {
+					var data1 = data.names ;
+					var title = data.values;
+					echartsOrderNum("echartsMoney",data1,title)
+
+				}
+			})
+		}
+	</script>
+</body></html>

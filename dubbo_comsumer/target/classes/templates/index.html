@@ -40,7 +40,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand">
-                多美多无人便利店
+
             </a>
         </div>
     </div>
@@ -75,10 +75,10 @@
     $(function(){
 
         // initNavTree();
-        $.post('../user/findDmdPower',{},function(data){
+        $.post('../user/findPower',{},function(data){
 
 
-           $("#navTree").treeview({
+            $("#navTree").treeview({
                 data:data,
                 onNodeSelected:function(event,node){
                     $.addtabs({iframeHeight: 550});

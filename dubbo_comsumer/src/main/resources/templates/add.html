@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script th:src="@{/js/jquery.min1.10.2.js}" src="../js/jquery.min1.10.2.js"></script>
+
+    <link th:href="@{/js/bootstrap3/css/bootstrap.css}" href="../js/bootstrap3/css/bootstrap.css"
+          rel="stylesheet"/>
+
+    <link th:href="@{/js/bootstrap-table/bootstrap-table.css}" href="../js/bootstrap-table/bootstrap-table.css"
+          rel="stylesheet"/>
+
+    <link th:href="@{/js/bootstrap-treeview/bootstrap-treeview.min.css}" href="../js/bootstrap-treeview/bootstrap-treeview.min.css"
+          rel="stylesheet"/>
+
+    <link th:href="@{/js/bootStrap-addTabs/bootstrap.addtabs.min.js}" href="../js/bootStrap-addTabs/bootstrap.addtabs.css"
+          rel="stylesheet"/>
+
+    <script th:src="@{/js/bootstrap-table/bootstrap-table.js}"
+            src="../js/bootstrap-table/bootstrap-table.js"></script>
+
+    <script th:src="@{/js/bootstrap-table/locale/bootstrap-table-zh-CN.js}"
+            src="../js/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+
+    <script th:src="@{/js/bootstrap3/js/bootstrap.js}" src="../js/bootstrap3/js/bootstrap.js"></script>
+
+    <script th:src="@{/js/bootstrap-bootbox/bootbox.js}" src="../js/bootstrap-bootbox/bootbox.js"></script>
+
+    <script th:src="@{/js/bootstrap-treeview/bootstrap-treeview.min.js}" src="../js/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+
+    <script th:src="@{/js/bootStrap-addTabs/bootstrap.addtabs.min.js}" src="../js/bootStrap-addTabs/bootstrap.addtabs.min.js"></script>
+</head>
+<body>
+<form id = "addForm" class="form-horizontal">
+<table>
+    <tr>
+        <td>商品</td>
+        <td> <input type="text" class="form-control" id="inputMusicName" name = "spname"> </td>
+    </tr>
+    <tr>
+        <td>毫升</td>
+        <td> <input type="text" class="form-control"  name = "haosheng"> </td>
+    </tr>
+    <tr>
+        <td>包装</td>
+        <td> <input type="text" class="form-control"  name = "baozhuang"> </td>
+    </tr>
+    <tr>
+        <td>金额</td>
+        <td> <input type="text" class="form-control" name = "jine" > </td>
+    </tr>
+    <tr>
+        <td>库存数量</td>
+        <td> <input type="text" class="form-control" name="kucunshuliang" > </td>
+    </tr>
+    <tr>
+        <td rowspan="2">
+            <button type="button" class="btn btn-primary btn-lg active" onclick="addDD()">立即提交</button>
+        </td>
+    </tr>
+</table>
+</form>
+<script>
+    function addDD() {
+        $.ajax({
+            url:"../user/addDing",
+            data:$("#addForm").serialize(),
+            type:"post",
+            success:function (data) {
+                alert("新增成功")
+            },error:function () {
+                alert("失败")
+            }
+        })
+    }
+</script>
+</body>
+</html>

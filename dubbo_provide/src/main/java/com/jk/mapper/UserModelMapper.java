@@ -1,7 +1,6 @@
 package com.jk.mapper;
 
-import com.jk.model.DmdPowerModel;
-import com.jk.model.UserModel;
+import com.jk.model.*;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -26,4 +25,15 @@ public interface UserModelMapper {
 
     @Select("UPDATE dmd_user SET password = #{password} where account = #{account} ")
     void xiugai(String account, String password);
+
+
+
+    @Select("select * from dingdan")
+    List<IndentModel> countCar();
+
+    @Select("select id,name as text ,url,pid from gs_power where pid = #{id}")
+    List<PowerModel> findNodes(Integer id);
+
+    @Select("INSERT INTO t_commodity(spname,haosheng,baozhuang,jine,kucunshuliang,yujingzhi,sunhuaishuliang,zaishoushuliang) VALUES(#{spname},#{haosheng},#{baozhuang},#{jine},#{kucunshuliang},20,0,0)")
+    void addDing(CommodityBean commodityBean);
 }

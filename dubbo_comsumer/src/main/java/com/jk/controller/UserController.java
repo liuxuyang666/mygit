@@ -2,16 +2,17 @@ package com.jk.controller;
 
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.jk.model.DmdPowerModel;
-import com.jk.model.NewsBean;
+import com.jk.model.*;
 import com.jk.service.UserService;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("user")
@@ -19,82 +20,70 @@ import java.util.List;
 public class UserController {
     @Reference
     private UserService userService;
-//查看商品分类
-    @RequestMapping("querycommclss")
-    public @ResponseBody
-    void querycommclss(){
 
+
+    //后台主页页面
+    @RequestMapping("findshow")
+    public String findshow(){
+        return "show";
     }
-//商家端左侧列表
-    @RequestMapping("findDmdPower")
+    //跳转添加商品
+    @RequestMapping("findadd")
+    public String findadd(){
+        return "add";
+    }
+
+
+    //eachars
+    @RequestMapping("finduser")
     @ResponseBody
-    public List<DmdPowerModel> findDmdPower(){
+    public Map countCar(IndentModel indentModel){
+        HashMap<String, Object> resout = new HashMap<>();
+        List<IndentModel>list = userService.countCar(indentModel);
+        ArrayList<Object> value = new ArrayList<>();
+        ArrayList<Object> name = new ArrayList<>();
 
-        List<DmdPowerModel>list = userService.findDmdPower();
-        return list;
+        for (int i=0;i<list.size();i++){
+            name.add( list.get( i ).getNum() );
+            value.add( list.get( i ).getTime());
+        }
+
+        resout.put( "names",name );
+        resout.put( "values",value );
+        return resout;
     }
 
-//跳转到个人中心页面
-    @RequestMapping("toPersonal")
-    public String toPersonal(){
-
-//        return "personal";
-        return "g_1个人信息.html";
-    }
-
-    //存取session 测试
-    @RequestMapping("session")
-    public String session(HttpSession session){
-   //                           数据库字段  数据
-        session.setAttribute("value",111);
-        return "test";
-    }
-
-
-    //跳转修改密码页面
-    @RequestMapping("toUpdatePw")
-    public String toUpdatePw(){
-
-        return "g_2修改密码";
-    }
-
-
-//   返回个人中心
-    @RequestMapping("personal")
-    public void personal(){
-        System.out.println(2121121+"|++++++++++++++++++++++++++++++++++++++++++++");
-//        return "h_个人中心";
-    }
-
-
-    //修改密码
-    @RequestMapping("xiugai")
+    //eachars
+    @RequestMapping("finduserr")
     @ResponseBody
-    public String xiugai(String account,String password ){
+    public Map finduserr(IndentModel indentModel){
+        HashMap<String, Object> resout = new HashMap<>();
+        List<IndentModel>list = userService.countCar(indentModel);
+        ArrayList<Object> value = new ArrayList<>();
+        ArrayList<Object> name = new ArrayList<>();
 
-        System.out.println(account);
-        return userService.xiugai(account,password);
+        for (int i=0;i<list.size();i++){
+            name.add( list.get( i ).getMoney() );
+            value.add( list.get( i ).getTime());
+        }
 
+        resout.put( "names",name );
+        resout.put( "values",value );
+        return resout;
     }
 
-    //跳转消息中心
-    @RequestMapping("toMessage")
-    public String toMessage(){
-        return "g_消息中心";
-    }
-
-    //查看消息
-    @RequestMapping("findNews")
+    //树
+    @RequestMapping("findPower")
     @ResponseBody
-    public NewsBean findNews(){
-        userService.findNews();
-
-        return null;
+    public List<PowerModel>findPower(){
+        return userService.findPower();
     }
 
-    //跳转代客下单
-    @RequestMapping("toDKXD")
-    public String toDKXD(){
-        return "f_代客下单";
+    //添加商品
+    @RequestMapping("addDing")
+    @ResponseBody
+    public void addDing(CommodityBean commodityBean){
+
+          userService.addDing(commodityBean);
     }
 }
