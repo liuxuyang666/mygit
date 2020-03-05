@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 重置文件 -->
+    <!--<script type="text/javascript" src="../css/normalize.css"></script>
+    <script type="text/javascript" src="../css/style.css"></script>-->
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>注册</title>
+</head>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<body>
+<center>
+    <div class="reg_div">
+        <ul class="reg_ul">
+            <form>
+                <li>
+                    <span>手机号码：</span>
+                    <input type="text" value="" id="mobileId" placeholder="请输入您注册时填写的手机号" class="reg_mobile">
+                    <span class="tip mobile_hint"></span>
+                </li>
+            </form>
+            <li>
+                <button type="button" name="button" onclick="forget()">立即找回</button>
+            </li>
+        </ul>
+    </div>
+</center>
+</body>
+
+
+
+<script type="text/javascript">
+    $('.reg_mobile').blur(function(){
+        if ((/^1[3457899]\d{9}$/).test($(".reg_mobile").val())){
+            $('.mobile_hint').html("✔").css("color","green");
+            Mobile_Boolean = true;
+        }else {
+            $('.mobile_hint').html("×").css("color","red");
+            Mobile_Boolean = false;
+        }
+    });
+    /*var mobileVal=document.getElementById("mobileId");*/
+    function forget() {
+        var mobileVal=$("#mobileId").val();
+        $.ajax({
+            url:"ForGetPassword",
+            data:{mobile:mobileVal},
+            type:"post",
+            dataType:"json",
+            success:function(data){
+                if(data==1){
+                    alert("改手机号没有注册过！");
+                }else{
+                    alert("已向该手机号发送短信，请注意查收！");
+                    location.href="ChangePassword";
+
+                }
+
+            },
+            error:function(){
+            alert("太棒了！！！");
+            }
+
+        })
+
+    }
+
+</script>
+</html>
