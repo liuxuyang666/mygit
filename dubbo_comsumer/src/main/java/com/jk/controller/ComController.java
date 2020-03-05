@@ -24,18 +24,20 @@ public class ComController {
         System.out.println("11111111111功！！！"+list);
         return  list;
     }
+
     /*@RequestMapping("bohui")
     @ResponseBody
     public  void  bohui(Integer ids){
         comService.bohui(ids);
     }*/
 
-    @RequestMapping("xq")
-    public  String  xq(){ return   "/dindanxiangqin"; }
-    @RequestMapping("fa")
-    public  String fa(){ return   "/tuihuo"; }
-    @RequestMapping("tuik")
-    public  String tuik(){ return   "/tuikuan"; }
-    @RequestMapping("buj")
-    public  String buj(){ return   "/bujiao"; }
+    @RequestMapping("xqin")
+    public  String xqin(){ return   "/xianq"; }
+    @RequestMapping("dd")
+    public  String dd(){ return   "/index"; }
+
+
+
+
+
 }

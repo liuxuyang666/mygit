@@ -1,0 +1,173 @@
+/***
+ * 名称:商城系统
+ * 模块:订单详情
+ * 20191101号晚上11点钟
+ * 作者yangkui
+ * **/
+$(function() {
+    //直接加载数据来：//默认显示第一页
+    initdata();
+    $(".order-cancel").click(function () {
+        //取消订单
+        var   listParam = {
+            orderNo      : GetQueryString('orderNumber') || '',
+        }
+        window.confirm('确认要取消订单吗？',function(index) {
+           layer.close(index)
+            console.log("订单取消成功",listParam);
+            Ajax.request({
+                url: 'api/order/ordercancel/', //访问路径
+                dataType: 'json', //访问类型 'json','html'等
+                params:listParam,
+                resultMsg: false, //是否需要提示信息
+                type: 'GET',//,'get','post'
+                isLoading:false,
+                successCallback: function (data) {
+                  alert("订单取消成功");
+                  //初始化数据
+                    initdata();
+                } //提交后处理
+            });
+
+        });
+    })
+    /****
+     * 去支付操作  html响应html然后跳转到支付宝
+     */
+    $(".orderpay").click(function () {
+        var   listParam = {
+            orderNo      : GetQueryString('orderNumber') || '',
+        }
+        Ajax.request({
+            url: 'api/order/pay', //访问路径
+            dataType: 'html', //访问类型 'json','html'等
+            params: listParam,
+            resultMsg: false, //是否需要提示信息
+            type: 'GET',//,'get','post'
+            isLoading: false,
+            successCallback: function (data) {
+                console.log("调用支付接口----此时支付宝页面直接响应的跳转到支付宝页面了"+data)
+                $('body').append(data);
+                $("form").attr("target", "_blank");
+            } //提交后处理
+        })
+
+    })
+
+})
+
+function initdata(){
+    //初始化数据
+    var   listParam = {
+        orderNo      : GetQueryString('orderNumber') || '',
+    }
+    Ajax.request({
+        url: 'api/order/orderdetail/', //访问路径
+        dataType: 'json', //访问类型 'json','html'等
+        params:listParam,
+        resultMsg: false, //是否需要提示信息
+        type: 'GET',//,'get','post'
+        isLoading:false,
+        successCallback: function (data) {
+            console.log("请求成功："+data);
+            console.log(data);
+            //拼接html：根据条件查询商品列表，然后动态拼接分页 拼接数据渲染html
+            if (data.status) {
+                renderlistdata(data.data)
+            }else{
+                alert("查询结果为空");
+            }
+
+        } //提交后处理
+    });
+
+}
+
+/***
+ * 渲染订单详情数据
+ * @param data
+ */
+function renderlistdata(data){
+
+
+    $(".order-info").empty();
+    var orderdetailhtml="";
+        //未支付  首先订单明细
+        //其次订单购买的商品的清单也就是orderitem
+        if(data.tbOrder.status==10){
+           //去支付做成按钮事件的方式-->
+            orderdetailhtml+=" <div class=\"text-line\"><span class=\"text\">订单号："+data.tbOrder.orderNo+"</span> <span class=\"text\">创建时间："+data.tbOrder.createTime+"</span>\n" +
+                "                    </div>\n";
+            if(data.shipping){
+                orderdetailhtml+= "                    <div class=\"text-line\"><span class=\"text\">收件人："+data.shipping.receiverName+"  "+data.shipping.receiverProvince+"   "+data.shipping.receiverCity+"  "+data.shipping.receiverAddress+"</span></div>\n";
+
+            }else{
+                orderdetailhtml+= "                    <div class=\"text-line\"><span class=\"text\">收件人：</span></div>"
+
+            }
+
+            orderdetailhtml+="                    <div class=\"text-line\"><span class=\"text\">订单状态：未支付</span></div>\n" +
+                "                    <div class=\"text-line\"><span class=\"text\">支付方式：在线支付</span></div>\n" +
+                "                    <div class=\"text-line\">\n" +
+                "                        <a class=\"btn btn-mini orderpay\"\n" +
+                "                                             >去支付</a> <a\n" +
+                "                            class=\"btn btn-mini order-cancel\">取消订单</a></div>";
+
+        }
+        //已支付
+        if(data.tbOrder.status==20){
+            orderdetailhtml+=" <div class=\"text-line\"><span class=\"text\">订单号："+data.tbOrder.orderNo+"</span> <span class=\"text\">创建时间："+data.tbOrder.createTime+"</span>\n" +
+            "                    </div>";
+            //判断收件人地址，收件人地址有可能被删除数据库查不到
+            if(data.shipping){
+                orderdetailhtml+= "                    <div class=\"text-line\"><span class=\"text\">收件人："+data.shipping.receiverName+"  "+data.shipping.receiverProvince+"   "+data.shipping.receiverCity+"  "+data.shipping.receiverAddress+"</span></div>\n";
+
+            }else{
+                orderdetailhtml+= "                    <div class=\"text-line\"><span class=\"text\">收件人：</span></div>"
+
+            }
+
+            orderdetailhtml+=   "                    <div class=\"text-line\"><span class=\"text\">订单状态：已支付</span></div>\n" +
+                "                    <div class=\"text-line\"><span class=\"text\">支付方式：在线支付</span></div>"
+        }
+        //已取消
+        if(data.tbOrder.status==0){
+         orderdetailhtml+=" <div class=\"text-line\"><span class=\"text\">订单号："+data.tbOrder.orderNo+"</span> <span class=\"text\">创建时间："+data.tbOrder.createTime+"</span>\n" +
+             "                    </div>";
+
+            if(data.shipping){
+                orderdetailhtml+= "                    <div class=\"text-line\"><span class=\"text\">收件人："+data.shipping.receiverName+"  "+data.shipping.receiverProvince+"   "+data.shipping.receiverCity+"  "+data.shipping.receiverAddress+"</span></div>\n";
+
+            }else{
+                orderdetailhtml+= "                    <div class=\"text-line\"><span class=\"text\">收件人：</span></div>"
+
+            }
+            orderdetailhtml+="                    <div class=\"text-line\"><span class=\"text\">订单状态：已取消</span></div>\n" +
+             "                    <div class=\"text-line\"><span class=\"text\">支付方式：在线支付</span></div>";
+        }
+
+
+    $(".order-info").append(orderdetailhtml);
+
+    /****
+     * 拼接商品清单
+     */
+    $(".order-list-table.order-item tbody").empty();
+     var ordetailproduct="";
+    for (var i=0;i<data.tbOrderItemList.length;i++) {
+        ordetailproduct += "<tr>\n" +
+            "                        <td class=\"order-list-cell cell-img\"><a href=\"./detail.html?productId="+data.tbOrderItemList[i].productId+"\" target=\"_blank\"><img\n" +
+            "                                class=\"p-img\"\n" +
+            "                                src=\"http://www.liph.fun/opt/uploads/background/2019-07-22637024.JPG\"\n" +
+            "                                alt=\"123666\"></a></td>\n" +
+            "                        <td class=\"order-list-cell cell-info\"><a class=\"link p-name\" href=\"./detail.html?productId="+data.tbOrderItemList[i].productId+"\"\n" +
+            "                                                                 target=\"_blank\">"+data.tbOrderItemList[i].productName+"</a></td>\n" +
+            "                        <td class=\"order-list-cell cell-price\">￥"+data.tbOrderItemList[i].currentUnitPrice+"</td>\n" +
+            "                        <td class=\"order-list-cell cell-count\">"+data.tbOrderItemList[i].quantity+"</td>\n" +
+            "                        <td class=\"order-list-cell cell-total\">￥"+data.tbOrderItemList[i].totalPrice+"</td>\n" +
+            "                    </tr>"
+    }
+     $(".order-list-table.order-item tbody").append(ordetailproduct)
+    //设置订单总价
+    $(".enhance").html(data.tbOrder.payment);
+}
